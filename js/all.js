@@ -562,6 +562,7 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -572,6 +573,7 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -583,7 +585,8 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: false,
-            pagination: false
+            pagination: false,
+            lazyLoad : true
         });
         
         // Item carousel
@@ -595,6 +598,7 @@ function initPageSliders(){
             itemsTabletSmall: [768, 3],
             itemsMobile: [480, 1],
             navigation: false,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -608,6 +612,7 @@ function initPageSliders(){
             itemsMobile: [480, 2],
             pagination: false,
             navigation: false,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -616,6 +621,7 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -625,6 +631,7 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
 
@@ -637,6 +644,7 @@ function initPageSliders(){
             itemsMobile: [480, 1],
             autoHeight: true,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         }); 
         
@@ -646,6 +654,7 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -659,6 +668,7 @@ function initPageSliders(){
             itemsMobile: [480, 1],
             pagination: false,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -671,6 +681,7 @@ function initPageSliders(){
             autoHeight: true,
             pagination: false,
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -683,6 +694,7 @@ function initPageSliders(){
             itemsTabletSmall: [768, 2],
             itemsMobile: [480, 1],
             navigation: true,
+            lazyLoad : true,
             navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
         });
         
@@ -795,6 +807,74 @@ function initPageSliders(){
     var fm_menu_button = $(".fm-button");
     
     function init_fullscreen_menu(){
+        
+        fm_menu_button.click(function(){
+            
+            if ($(this).hasClass("animation-process")){
+                return false;
+            }
+            else{
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass("active").css("z-index", "2001").addClass("animation-process");;
+                    
+                    fm_menu_wrap.find(".fm-wrapper-sub").fadeOut("fast", function(){
+                        fm_menu_wrap.fadeOut(function(){
+                            fm_menu_wrap.find(".fm-wrapper-sub").removeClass("js-active").show();
+                            fm_menu_button.css("z-index", "1030").removeClass("animation-process");
+                            
+                        });
+                    });
+                    
+                    if ($(".owl-carousel").lenth) {
+                        $(".owl-carousel").data("owlCarousel").play();
+                    }
+                    
+                }
+                else {
+                    if ($(".owl-carousel").lenth) {
+                        $(".owl-carousel").data("owlCarousel").stop();
+                    }
+                    $(this).addClass("active").css("z-index", "2001").addClass("animation-process");
+                    
+                    fm_menu_wrap.fadeIn(function(){
+                        fm_menu_wrap.find(".fm-wrapper-sub").addClass("js-active");
+                        fm_menu_button.removeClass("animation-process");
+                    });
+                }
+                
+                return false;
+            }
+            
+        });
+        
+        $(document).keydown(function(e){
+            
+            if (fm_menu_button.hasClass("animation-process")){
+                return false;
+            } 
+            else {
+                if (e.keyCode == 27 && fm_menu_button.hasClass("active")) {
+                    
+                    fm_menu_button.removeClass("active").css("z-index", "2001").addClass("animation-process");;
+                    
+                    fm_menu_wrap.find(".fm-wrapper-sub").fadeOut("fast", function(){
+                        fm_menu_wrap.fadeOut(function(){
+                            fm_menu_wrap.find(".fm-wrapper-sub").removeClass("js-active").show();
+                            fm_menu_button.css("z-index", "1030").removeClass("animation-process");
+                            
+                        });
+                    });
+                    
+                    if ($(".owl-carousel").lenth) {
+                        $(".owl-carousel").data("owlCarousel").play();
+                    }
+                    
+                    return false;
+                    
+                }
+            }
+            
+        });
         
         fm_menu_button.click(function(){
             
@@ -1052,8 +1132,24 @@ function initWorkFilter(){
              filter: fselector
          });
      });
-        
-        
+     
+     // Lazy loading plus isotope filter
+     $(".img-lazy-work").load(function(){
+         masonry_update();
+     });     
+     function masonry_update(){
+         work_grid.imagesLoaded(function(){
+             work_grid.isotope({
+                 itemSelector: '.mix',
+                 layoutMode: isotope_mode,
+                 filter: fselector
+             });
+         });
+     }
+     work_grid.on("arrangeComplete", function(){
+         $(window).trigger("scroll");
+     });
+    
     })(jQuery);
 }
 

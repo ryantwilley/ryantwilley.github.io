@@ -3,8 +3,8 @@
 [Master Stylesheet]
 
 Project:    Rhythm
-Version:    2.12
-Last change:    31.05.2019
+Version:    2.13
+Last change:    22.10.2019
 Primary use:    MultiPurpose Template  
 -------------------------------------------------------------------*/
 
@@ -1158,10 +1158,14 @@ a.btn-mod:focus{
     z-index: 0;
 } 
 a.bg-video-button-muted{
+    display:block;
+    width: 1em;
+    height: 1em;
     position: absolute;
-    bottom: 0;
+    bottom: 15px;
     left: 15px;    
     font-size: 28px;
+    line-height: 1;
     color: #fff;  
     opacity: .75;    
     z-index: 1000;
