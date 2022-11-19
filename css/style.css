@@ -1054,16 +1054,17 @@ a.btn-mod:focus{
 
 .home-section{
     width: 100%;
+    height: calc(100vw / (2100 / 988));
     display: block;    
     position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
 }
 
 .home-content{
@@ -1590,7 +1591,7 @@ a.logo:hover{
 .inner-nav ul{
     float: right;
     margin: auto;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1877,7 +1878,7 @@ a.logo:hover{
     display: none;
     float: right;
     vertical-align: middle;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
     text-transform: uppercase;
     border-left: 1px solid rgba(0,0,0, .05);
@@ -2072,7 +2073,7 @@ a.logo:hover{
     height: 34px;
     line-height: 33px;
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
     
     display: inline-block;
     border: 1px solid rgba(0,0,0, .1);
@@ -2091,7 +2092,7 @@ a.logo:hover{
     border: 1px solid rgba(0,0,0, .25);
 }
 .main-nav .tooltip{
-    font-size: 12x;
+    font-size: 13x;
     text-transform: none;
     letter-spacing: 0;
 }
@@ -2755,7 +2756,7 @@ a.logo:hover{
 .section-more{
     margin-top: 7px;
     color: #999;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.4em;
     text-decoration: none;
@@ -2813,7 +2814,7 @@ a.logo:hover{
 
 .mod-breadcrumbs{
     margin-top: -5px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.4em;
     text-decoration: none;
@@ -3071,7 +3072,7 @@ a.logo:hover{
 }
 .team-item-role{
     margin-top: 4px;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.4em;
     color: #aaa;
@@ -3317,7 +3318,7 @@ a.logo:hover{
 }
 .count-descr{
     color: #999;
-    font-size: 11px;
+    font-size: 13px;
     text-align:center;
 }
 .count-descr .fa{
@@ -3471,7 +3472,7 @@ a.logo:hover{
     line-height: 1.2;
 }
 .work-descr{    
-    font-size: 11px;
+    font-size: 12px;
     text-align: center;
     text-transform: uppercase;
     color: #aaa;
@@ -3613,7 +3614,7 @@ a.logo:hover{
 .work-navigation{
     width: 100%;
     background: #fff;    
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;    
     
@@ -3665,7 +3666,7 @@ a.logo:hover{
     margin: 20px 0 0;
     display: block;
     background: #fff;
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #151515; 
@@ -3714,7 +3715,7 @@ a.logo:hover{
     margin-bottom: 0;
 }
 .work-full-detail{
-    font-size: 11px;
+    font-size: 12px;
     color: #777;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -3876,7 +3877,7 @@ a.logo:hover{
 .post-prev-info,
 .post-prev-info a{
     margin-bottom: 15px;
-    font-size: 11px;
+    font-size: 12px;
     text-decoration: none;
     color: #aaa;
     
@@ -4192,7 +4193,7 @@ a.logo:hover{
     letter-spacing: 0.5em;
 }
 .footer-made{
-    font-size: 11px;
+    font-size: 12px;
     color: #999;
 }
 
@@ -4327,7 +4328,7 @@ a.link-to-top{
 .blog-item-data{
     margin-bottom: 30px;
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 1px;
     color: #aaa;
 }
@@ -4350,7 +4351,7 @@ a.link-to-top{
 .blog-post-data{
     margin-top: 10px;
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 1px;
     color: #aaa;
 }
@@ -4557,7 +4558,7 @@ a.blog-item-more:hover{
 .comment-author{
     display: inline-block;
     margin-right: 20px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700; 
 }
 .comment-author a{
@@ -4663,7 +4664,7 @@ a.blog-item-more:hover{
     color: #999;
 }
 .widget-menu li small{
-    font-size: 11px;
+    font-size: 12px;
     color: #aaa; 
 }
 
@@ -5291,7 +5292,7 @@ section:hover .small-item-carousel .owl-next{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     
@@ -5503,7 +5504,7 @@ section:hover .small-item-carousel .owl-next{
     position: relative;
     overflow: visible;
     background-color: #222;
-    font-size: 11px;
+    font-size: 12px;
     color: #000;
     text-align: left;
     -moz-box-sizing: border-box;
@@ -5562,7 +5563,7 @@ section:hover .small-item-carousel .owl-next{
     position: relative;
     overflow: visible;
     background-color: #222;
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #fff;
@@ -5678,7 +5679,7 @@ section:hover .small-item-carousel .owl-next{
     background: #f32929;
     color: white;
     padding: 2px 3px;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 700; 
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -5695,7 +5696,7 @@ section:hover .small-item-carousel .owl-next{
     top:-5px;
     right: -5px;
     color: rgba(255,255,255, .85);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
