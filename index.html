@@ -148,6 +148,8 @@
                             <li>Jim Schott and Karen Radosevich</li>
                         </ul>
                     </div>
+
+                    <div class="section-icon" id="paypal-donate-button-container"></div>
                 </div>
             </section>
 
@@ -339,7 +341,7 @@
             </section>
             <!-- End Contact Section -->
 
-            <!-- Foter -->
+            <!-- Footer -->
             <footer class="page-section bg-gray-lighter footer pb-60">
                 <div class="container">
                     
@@ -396,7 +398,25 @@
         <script type="text/javascript" src="js/all.js"></script>
         <script type="text/javascript" src="js/contact-form.js"></script>
         <script type="text/javascript" src="js/jquery.ajaxchimp.min.js"></script>       
+        <!-- for paypal donation button -->
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
         <!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+
+        <script>
+            PayPal.Donation.Button({
+                env: 'production',
+                hosted_button_id: 'EJAJWD8MJJ3VL',
+                // business: 'YOUR_EMAIL_OR_PAYERID',
+                image: {
+                    src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+                    title: 'PayPal - The safer, easier way to pay online!',
+                    alt: 'Donate with PayPal button'
+                },
+                onComplete: function (params) {
+                    // Your onComplete handler
+                },
+            }).render('#paypal-donate-button-container');
+         </script>
         
     </body>
 </html>
