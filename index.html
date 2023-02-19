@@ -102,16 +102,21 @@
                         </div>
                     </div>
 
-                    <!-- div id="smart-button-container">
+                    <div id="smart-button-container">
                         <div style="text-align: center;">
                             <div style="margin-bottom: 1.25rem;">
-                                <p>Season Memberships</p>
-                                <select id="item-options"><option value="Couple (6 Dances)" price="120">Couple (6 Dances) - 120 USD</option><option value="Couple (3 dances)" price="90">Couple (3 dances) - 90 USD</option><option value="Single (6 Dances)" price="60">Single (6 Dances) - 60 USD</option><option value="Single (3 Dances)" price="45">Single (3 Dances) - 45 USD</option></select>
+                                <p>Season Membership Options</p>
+                                <select id="item-options">
+                                    <option value="Full Membership-Couple (6 Dances)" price="120">Full Membership-Couple (6 Dances) - 120 USD</option>
+                                    <option value="Full Membership-Single (6 Dances)" price="60">Full Membership-Single (6 Dances) - 60 USD</option>
+                                    <option value="Half Membership-Couple (3 Dances)" price="90">Half Membership-Couple (3 Dances) - 90 USD</option>
+                                    <option value="Half Membership-Single (3 Dances)" price="45">Half Membership-Single (3 Dances) - 45 USD</option>
+                                </select>
                                 <select style="visibility: hidden" id="quantitySelect"></select>
                             </div>
-                            <div id="paypal-button-container"></div>
+                        <div id="paypal-button-container"></div>
                         </div>
-                    </div -->
+                    </div>
 
                     <div class="section-text mb-50 mb-sm-20">
                         <div class="row">
@@ -780,11 +785,12 @@
                 var itemOptions = document.querySelector("#smart-button-container #item-options");
                 var quantity = parseInt();
                 var quantitySelect = document.querySelector("#smart-button-container #quantitySelect");
+                
                 if (!isNaN(quantity)) {
                     quantitySelect.style.visibility = "visible";
                 }
 
-                var orderDescription = 'Season Memberships';
+                var orderDescription = 'Season Membership Options';
           
                 if (orderDescription === '') {
                     orderDescription = 'Item';
@@ -795,7 +801,7 @@
                         shape: 'rect',
                         color: 'gold',
                         layout: 'vertical',
-                        label: 'buynow',
+                        label: 'paypal',
                     },
                 
                     createOrder: function(data, actions) {
@@ -838,8 +844,8 @@
                             items: [{
                                 name: selectedItemDescription,
                                 unit_amount: {
-                                currency_code: 'USD',
-                                value: selectedItemPrice,
+                                    currency_code: 'USD',
+                                    value: selectedItemPrice,
                                 },
                                 quantity: quantity
                             }]
@@ -867,7 +873,7 @@
                 }).render('#paypal-button-container');
             }
 
-            // initPayPalButton();
+            initPayPalButton();
           </script>
         
     </body>
