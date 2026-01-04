@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Payment Successful - The Skyliners Big Band</title>
+        <meta name="description" content="Thank you for your membership purchase">
+        <meta name="robots" content="noindex, nofollow">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="images/logo-white.png">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style-responsive.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/vertical-rhythm.min.css">
+        
+        <style>
+            .success-container {
+                max-width: 650px;
+                margin: 0 auto;
+                padding: 20px;
+                text-align: center;
+            }
+            .success-icon {
+                width: 120px;
+                height: 120px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 30px;
+                animation: scaleIn 0.5s ease-out;
+            }
+            .success-icon svg {
+                width: 60px;
+                height: 60px;
+                stroke: white;
+                stroke-width: 3;
+                fill: none;
+                animation: checkmark 0.8s ease-out 0.3s both;
+            }
+            @keyframes scaleIn {
+                0% { transform: scale(0); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+            @keyframes checkmark {
+                0% { stroke-dashoffset: 100; }
+                100% { stroke-dashoffset: 0; }
+            }
+            .success-icon svg path {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 100;
+            }
+            .success-title {
+                color: #28a745;
+                margin-bottom: 20px;
+            }
+            .receipt-box {
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                border-radius: 10px;
+                padding: 25px;
+                margin: 30px 0;
+                text-align: left;
+            }
+            .receipt-header {
+                border-bottom: 2px solid #dee2e6;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+            .receipt-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                border-bottom: 1px solid #eee;
+            }
+            .receipt-row:last-child {
+                border-bottom: none;
+            }
+            .receipt-row.total {
+                font-weight: bold;
+                font-size: 1.2em;
+                border-top: 2px solid #dee2e6;
+                margin-top: 10px;
+                padding-top: 15px;
+            }
+            .receipt-label {
+                color: #666;
+            }
+            .receipt-value {
+                color: #333;
+                font-weight: 500;
+            }
+            .next-steps {
+                background: #e7f3ff;
+                border: 1px solid #b6d4fe;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 30px 0;
+                text-align: left;
+            }
+            .next-steps h4 {
+                color: #0c5460;
+                margin-bottom: 15px;
+            }
+            .next-steps ul {
+                color: #0c5460;
+                margin: 0;
+                padding-left: 20px;
+            }
+            .next-steps li {
+                margin-bottom: 8px;
+            }
+            .btn-print {
+                background: #6c757d;
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-right: 10px;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .btn-print:hover {
+                background: #5a6268;
+                color: white;
+            }
+            .btn-home {
+                background: #0070ba;
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .btn-home:hover {
+                background: #005a9e;
+                color: white;
+            }
+            .contact-info {
+                margin-top: 30px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+            }
+            @media print {
+                .main-nav, .btn-print, .btn-home, .next-steps, footer {
+                    display: none !important;
+                }
+                .receipt-box {
+                    border: 2px solid #333;
+                }
+                body {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body class="appear-animate">
+        
+        <!-- Page Wrap -->
+        <div class="page" id="top">
+            
+            <!-- Navigation panel -->
+            <nav class="main-nav stick-fixed">
+                <div class="full-wrapper relative clearfix">
+                    <!-- Logo -->
+                    <div class="nav-logo-wrap local-scroll">
+                        <a href="index.html" class="logo">
+                            <img src="images/Logo1.jpg" alt="Skyliners Big Band logo" />
+                        </a>
+                    </div>
+                    <div class="mobile-nav" role="button" tabindex="0">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Menu</span>
+                    </div>
+                    <!-- Main Menu -->
+                    <div class="inner-nav desktop-nav">
+                        <ul class="clearlist scroll-nav local-scroll">
+                            <li><a href="index.html">← Back to Main Site</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navigation panel -->
+
+            <!-- Main Content Section -->
+            <section class="small-section pt-100 mt-100">
+                <div class="container relative">
+                    
+                    <div class="success-container">
+                        <!-- Success Icon -->
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 12 L9 17 L20 6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        
+                        <h1 class="success-title font-alt">Payment Successful!</h1>
+                        <p class="lead" id="greeting">Thank you for your membership purchase.</p>
+                        
+                        <!-- Receipt Box -->
+                        <div class="receipt-box" id="receipt">
+                            <div class="receipt-header">
+                                <strong>The Skyliners Big Band of Acadiana</strong>
+                                <br><small>Membership Receipt</small>
+                            </div>
+                            
+                            <div class="receipt-row">
+                                <span class="receipt-label">Transaction ID:</span>
+                                <span class="receipt-value" id="transaction-id">-</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Date:</span>
+                                <span class="receipt-value" id="transaction-date">-</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Membership:</span>
+                                <span class="receipt-value" id="membership-type">-</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Payer:</span>
+                                <span class="receipt-value" id="payer-name">-</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Email:</span>
+                                <span class="receipt-value" id="payer-email">-</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Shipping Address:</span>
+                                <span class="receipt-value" id="shipping-address">-</span>
+                            </div>
+                            <div class="receipt-row total">
+                                <span class="receipt-label">Total Paid:</span>
+                                <span class="receipt-value" id="amount-paid">-</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Steps -->
+                        <div class="next-steps">
+                            <h4>📋 What Happens Next?</h4>
+                            <ul>
+                                <li>You will receive a confirmation email from PayPal shortly</li>
+                                <li>Our team will process your membership within 1-2 business days</li>
+                                <li>You'll receive your membership card and dance schedule via email</li>
+                                <li>Save or print this receipt for your records</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="mb-30">
+                            <button class="btn-print" onclick="window.print()">🖨️ Print Receipt</button>
+                            <a href="index.html" class="btn-home">🏠 Return to Home</a>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div class="contact-info">
+                            <p><strong>Questions about your membership?</strong></p>
+                            <p>Contact us through the main website or check your email for further instructions.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <!-- End Main Content Section -->
+
+            <!-- Footer -->
+            <footer class="small-section bg-dark">
+                <div class="container relative">
+                    <div class="footer-text">
+                        <p class="text-center">
+                            © The Skyliners Big Band of Acadiana. All Rights Reserved.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+            
+        </div>
+        <!-- End Page Wrap -->
+
+        <!-- JS -->
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/SmoothScroll.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/all.js"></script>
+        
+        <script>
+            // Parse URL parameters
+            function getUrlParams() {
+                const params = new URLSearchParams(window.location.search);
+                return {
+                    transactionId: params.get('txn') || '-',
+                    payerName: params.get('name') || 'Valued Member',
+                    payerEmail: params.get('email') || '-',
+                    amount: params.get('amount') || '-',
+                    membership: params.get('membership') || '-',
+                    date: params.get('date') || new Date().toLocaleDateString(),
+                    // Shipping address fields
+                    address1: params.get('address1') || '',
+                    address2: params.get('address2') || '',
+                    city: params.get('city') || '',
+                    state: params.get('state') || '',
+                    zip: params.get('zip') || '',
+                    country: params.get('country') || ''
+                };
+            }
+            
+            // Format shipping address
+            function formatAddress(data) {
+                const parts = [];
+                if (data.address1) parts.push(data.address1);
+                if (data.address2) parts.push(data.address2);
+                
+                let cityStateZip = '';
+                if (data.city) cityStateZip += data.city;
+                if (data.state) cityStateZip += (cityStateZip ? ', ' : '') + data.state;
+                if (data.zip) cityStateZip += ' ' + data.zip;
+                if (cityStateZip) parts.push(cityStateZip);
+                
+                if (data.country && data.country !== 'US') parts.push(data.country);
+                
+                return parts.length > 0 ? parts.join('<br>') : '-';
+            }
+            
+            // Populate receipt with transaction details
+            document.addEventListener('DOMContentLoaded', function() {
+                const data = getUrlParams();
+                
+                // Update greeting
+                document.getElementById('greeting').textContent = 
+                    'Thank you, ' + data.payerName.split(' ')[0] + '! Your membership purchase has been completed.';
+                
+                // Update receipt
+                document.getElementById('transaction-id').textContent = data.transactionId;
+                document.getElementById('transaction-date').textContent = data.date;
+                document.getElementById('membership-type').textContent = decodeURIComponent(data.membership);
+                document.getElementById('payer-name').textContent = data.payerName;
+                document.getElementById('payer-email').textContent = data.payerEmail;
+                document.getElementById('shipping-address').innerHTML = formatAddress(data);
+                document.getElementById('amount-paid').textContent = '$' + data.amount + ' USD';
+            });
+        </script>
+        
+    </body>
+</html>

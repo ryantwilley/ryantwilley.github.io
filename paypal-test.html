@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PayPal Integration Test - The Skyliners Big Band</title>
+        <meta name="description" content="PayPal integration test page for The Skyliners Big Band Dance Club">
+        <meta name="robots" content="noindex, nofollow">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="images/logo-white.png">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style-responsive.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/vertical-rhythm.min.css">
+        
+        <style>
+            .paypal-test-container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .beta-badge {
+                background-color: #ff6b35;
+                color: white;
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: bold;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+            .membership-option {
+                background: #f8f9fa;
+                border: 2px solid #dee2e6;
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .membership-option:hover {
+                border-color: #0070ba;
+                box-shadow: 0 4px 12px rgba(0,112,186,0.2);
+            }
+            .membership-option.selected {
+                border-color: #0070ba;
+                background: #e7f3ff;
+            }
+            .membership-option input[type="radio"] {
+                margin-right: 10px;
+            }
+            .price-tag {
+                font-size: 24px;
+                font-weight: bold;
+                color: #0070ba;
+            }
+            .test-notice {
+                background: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 30px;
+            }
+            .test-notice h4 {
+                color: #856404;
+                margin-bottom: 10px;
+            }
+            .test-notice p {
+                color: #856404;
+                margin: 0;
+            }
+            #paypal-button-container {
+                margin-top: 30px;
+            }
+            .back-link {
+                display: inline-block;
+                margin-bottom: 20px;
+                color: #0070ba;
+                text-decoration: none;
+            }
+            .back-link:hover {
+                text-decoration: underline;
+            }
+            .transaction-result {
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 20px;
+                display: none;
+            }
+            .transaction-result.success {
+                background: #d4edda;
+                border: 1px solid #c3e6cb;
+                color: #155724;
+            }
+            .transaction-result.error {
+                background: #f8d7da;
+                border: 1px solid #f5c6cb;
+                color: #721c24;
+            }
+        </style>
+    </head>
+    <body class="appear-animate">
+        
+        <!-- Page Wrap -->
+        <div class="page" id="top">
+            
+            <!-- Navigation panel -->
+            <nav class="main-nav stick-fixed">
+                <div class="full-wrapper relative clearfix">
+                    <!-- Logo -->
+                    <div class="nav-logo-wrap local-scroll">
+                        <a href="index.html" class="logo">
+                            <img src="images/Logo1.jpg" alt="Skyliners Big Band logo" />
+                        </a>
+                    </div>
+                    <div class="mobile-nav" role="button" tabindex="0">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Menu</span>
+                    </div>
+                    <!-- Main Menu -->
+                    <div class="inner-nav desktop-nav">
+                        <ul class="clearlist scroll-nav local-scroll">
+                            <li><a href="index.html">← Back to Main Site</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navigation panel -->
+
+            <!-- Main Content Section -->
+            <section class="small-section pt-100 mt-100">
+                <div class="container relative">
+                    
+                    <a href="index.html" class="back-link">← Back to Main Site</a>
+                    
+                    <div class="paypal-test-container">
+                        <span class="beta-badge">BETA TEST</span>
+                        
+                        <h1 class="section-title font-alt mb-30">
+                            PayPal Payment Test
+                        </h1>
+                        
+                        <div class="test-notice">
+                            <h4>⚠️ Test Mode Notice</h4>
+                            <p>This is a <strong>beta test page</strong> for PayPal integration. Real transactions will be processed during testing with 1/100th the actual amount.</p>
+                        </div>
+                        
+                        <div class="test-notice" style="background: #d1ecf1; border-color: #bee5eb;">
+                            <h4 style="color: #0c5460;">ℹ️ How This Works</h4>
+                            <p style="color: #0c5460;">After completing your payment, you will receive a confirmation email from PayPal. Our team will process your membership send you a confirmation.</p>
+                        </div>
+
+                        <h3 class="font-alt mb-20">Select Membership Option</h3>
+                        
+                        <div class="membership-options">
+                            <label class="membership-option selected">
+                                <input type="radio" name="membership" value="full-couple" data-price=".150" data-description="Full Membership - Couple (6 Dances)" checked>
+                                <strong>Full Membership - Couple</strong>
+                                <br><small>6 Dances included</small>
+                                <div class="price-tag">$150</div>
+                            </label>
+                            
+                            <label class="membership-option">
+                                <input type="radio" name="membership" value="full-single" data-price=".075" data-description="Full Membership - Single (6 Dances)">
+                                <strong>Full Membership - Single</strong>
+                                <br><small>6 Dances included</small>
+                                <div class="price-tag">$75</div>
+                            </label>
+                            
+                            <label class="membership-option">
+                                <input type="radio" name="membership" value="half-couple" data-price=".100" data-description="Half Membership - Couple (3 Dances)">
+                                <strong>Half Membership - Couple</strong>
+                                <br><small>3 Dances included</small>
+                                <div class="price-tag">$100</div>
+                            </label>
+                            
+                            <label class="membership-option">
+                                <input type="radio" name="membership" value="half-single" data-price=".050" data-description="Half Membership - Single (3 Dances)">
+                                <strong>Half Membership - Single</strong>
+                                <br><small>3 Dances included</small>
+                                <div class="price-tag">$50</div>
+                            </label>
+                        </div>
+
+                        <!-- PayPal Button Container -->
+                        <div id="paypal-button-container"></div>
+                        
+                        <!-- Refund Policy -->
+                        <div class="refund-policy" style="margin-top: 25px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #6c757d; font-size: 14px;">
+                            <h5 style="margin: 0 0 10px 0; color: #495057;">📋 Refund & Cancellation Policy</h5>
+                            <ul style="margin: 0; padding-left: 20px; color: #666;">
+                                <li>Membership fees are <strong>non-refundable</strong> once processed.</li>
+                                <li>Memberships are <strong>non-transferable</strong> to other individuals.</li>
+                                <li>Questions? Contact us before purchasing at the email on our <a href="index.html#contact">Contact page</a>.</li>
+                            </ul>
+                            <p style="margin: 10px 0 0 0; font-size: 12px; color: #888;">By completing your purchase, you agree to this refund policy.</p>
+                        </div>
+                        
+                        <!-- Transaction Result -->
+                        <div id="transaction-result" class="transaction-result">
+                            <h4 id="result-title"></h4>
+                            <p id="result-message"></p>
+                            <pre id="result-details" style="font-size: 12px; overflow-x: auto;"></pre>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <!-- End Main Content Section -->
+
+            <!-- Footer -->
+            <footer class="small-section bg-dark">
+                <div class="container relative">
+                    <div class="footer-text">
+                        <p class="text-center">
+                            © The Skyliners Big Band of Acadiana. All Rights Reserved.
+                            <br><small>This is a beta test page for PayPal integration.</small>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+            
+        </div>
+        <!-- End Page Wrap -->
+
+        <!-- JS -->
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/SmoothScroll.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/all.js"></script>
+        
+        <!-- PayPal SDK -->
+        <!-- IMPORTANT: Replace YOUR_CLIENT_ID with your actual PayPal Client ID -->
+        <!-- For sandbox testing, use your sandbox client ID -->
+        <!-- For production, use your live client ID and remove &enable-funding=venmo if not needed -->
+        <script src="https://www.paypal.com/sdk/js?client-id=AX08XsMLzwnt9QYuuP4l7bpx_TOQtYFmF7qfXfwim-ZeMCxmdzhwOAD6WBGUM9xSR2LSe45KEwHwjzwm&currency=USD&intent=capture" data-sdk-integration-source="button-factory"></script>
+        
+        <script>
+            // Membership option selection handling
+            document.querySelectorAll('.membership-option').forEach(function(option) {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.membership-option').forEach(function(opt) {
+                        opt.classList.remove('selected');
+                    });
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    // Check the radio button
+                    this.querySelector('input[type="radio"]').checked = true;
+                });
+            });
+
+            // Get selected membership details
+            function getSelectedMembership() {
+                const selected = document.querySelector('input[name="membership"]:checked');
+                return {
+                    value: selected.value,
+                    price: selected.dataset.price,
+                    description: selected.dataset.description
+                };
+            }
+
+            // Show transaction result
+            function showResult(success, title, message, details) {
+                const resultDiv = document.getElementById('transaction-result');
+                const resultTitle = document.getElementById('result-title');
+                const resultMessage = document.getElementById('result-message');
+                const resultDetails = document.getElementById('result-details');
+                
+                resultDiv.className = 'transaction-result ' + (success ? 'success' : 'error');
+                resultDiv.style.display = 'block';
+                resultTitle.textContent = title;
+                resultMessage.textContent = message;
+                resultDetails.textContent = details ? JSON.stringify(details, null, 2) : '';
+            }
+
+            // Initialize PayPal Buttons
+            // NOTE: This will only work once you replace YOUR_CLIENT_ID with a valid PayPal Client ID
+            if (typeof paypal !== 'undefined') {
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal'
+                    },
+                    
+                    createOrder: function(data, actions) {
+                        const membership = getSelectedMembership();
+                        return actions.order.create({
+                            purchase_units: [{
+                                description: membership.description,
+                                amount: {
+                                    currency_code: 'USD',
+                                    value: membership.price
+                                }
+                            }],
+                            application_context: {
+                                shipping_preference: 'GET_FROM_FILE'
+                            }
+                        });
+                    },
+                    
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            // Build redirect URL with transaction details
+                            const membership = getSelectedMembership();
+                            const shipping = details.purchase_units[0].shipping;
+                            const address = shipping ? shipping.address : {};
+                            
+                            const params = new URLSearchParams({
+                                txn: details.id,
+                                name: details.payer.name.given_name + ' ' + details.payer.name.surname,
+                                email: details.payer.email_address,
+                                amount: details.purchase_units[0].amount.value,
+                                membership: membership.description,
+                                date: new Date().toLocaleDateString(),
+                                // Shipping address fields
+                                address1: address.address_line_1 || '',
+                                address2: address.address_line_2 || '',
+                                city: address.admin_area_2 || '',
+                                state: address.admin_area_1 || '',
+                                zip: address.postal_code || '',
+                                country: address.country_code || ''
+                            });
+                            
+                            // Redirect to thank-you page
+                            window.location.href = 'payment-success.html?' + params.toString();
+                        });
+                    },
+                    
+                    onError: function(err) {
+                        showResult(
+                            false,
+                            '✗ Payment Error',
+                            'There was an error processing your payment. Please try again.',
+                            err
+                        );
+                        console.error('PayPal Error:', err);
+                    },
+                    
+                    onCancel: function(data) {
+                        showResult(
+                            false,
+                            'Payment Cancelled',
+                            'You cancelled the payment. No charges have been made.',
+                            data
+                        );
+                        console.log('Payment cancelled:', data);
+                    }
+                    
+                }).render('#paypal-button-container');
+            } else {
+                document.getElementById('paypal-button-container').innerHTML = 
+                    '<div class="test-notice" style="background: #f8d7da; border-color: #f5c6cb;">' +
+                    '<h4 style="color: #721c24;">PayPal SDK Not Loaded</h4>' +
+                    '<p style="color: #721c24;">Please replace <code>YOUR_CLIENT_ID</code> in the PayPal SDK script tag with your actual PayPal Client ID to enable the payment buttons.</p>' +
+                    '<p style="color: #721c24; margin-top: 10px;"><strong>To get a Client ID:</strong></p>' +
+                    '<ol style="color: #721c24; margin-left: 20px;">' +
+                    '<li>Go to <a href="https://developer.paypal.com" target="_blank">developer.paypal.com</a></li>' +
+                    '<li>Log in and go to Dashboard → Apps & Credentials</li>' +
+                    '<li>Create a new app or use an existing one</li>' +
+                    '<li>Copy the Client ID and paste it in this page\'s source code</li>' +
+                    '</ol>' +
+                    '</div>';
+            }
+        </script>
+        
+    </body>
+</html>
