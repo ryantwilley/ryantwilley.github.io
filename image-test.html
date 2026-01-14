@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Image Carousel Test - The Skyliners Big Band</title>
+        <title>Image Test - The Skyliners Big Band</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         
@@ -14,8 +14,6 @@
         <link rel="stylesheet" href="css/style-responsive.css">
         <link rel="stylesheet" href="css/animate.min.css">
         <link rel="stylesheet" href="css/vertical-rhythm.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/owl.transitions.css">
         
         <style>
             .test-container {
@@ -24,20 +22,17 @@
                 padding: 40px 20px;
                 text-align: center;
             }
-            .carousel-wrapper {
+            .image-wrapper {
                 max-width: 500px;
                 margin: 30px auto;
                 border-radius: 10px;
                 overflow: hidden;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             }
-            .carousel-wrapper img {
+            .image-wrapper img {
                 width: 100%;
                 height: auto;
                 display: block;
-            }
-            .owl-theme .owl-controls .owl-page span {
-                background: #28a745;
             }
             .size-info {
                 margin-top: 20px;
@@ -101,37 +96,25 @@
                 <div class="container relative">
                     
                     <div class="test-container">
-                        <h1 class="font-alt">Image Carousel Test</h1>
-                        <p class="lead">Testing the 2023 image carousel display</p>
+                        <h1 class="font-alt">Random Image Test</h1>
+                        <p class="lead">Testing random 2023 image display</p>
                         
-                        <!-- Carousel -->
-                        <div class="carousel-wrapper">
-                            <div class="image-carousel owl-carousel">
-                                <div><img src="images/2023/Group 2023.webp" alt="Skyliners Group 2023"></div>
-                                <div><img src="images/2023/Billie March 2023.webp" alt="Billie March 2023"></div>
-                                <div><img src="images/2023/Linda Younger and Friends March 2023.webp" alt="Linda Younger and Friends March 2023"></div>
-                                <div><img src="images/2023/New & Returning Members March 2023.webp" alt="New & Returning Members March 2023"></div>
-                                <div><img src="images/2023/Veterans Concert 2023.webp" alt="Veterans Concert 2023"></div>
-                                <div><img src="images/2023/Veterans Concert 2 2023.webp" alt="Veterans Concert 2 2023"></div>
-                                <div><img src="images/2023/2023 Linda Younger.webp" alt="Linda Younger 2023"></div>
-                            </div>
+                        <!-- Random Image -->
+                        <div class="image-wrapper">
+                            <img id="randomImage" src="" alt="Skyliners Big Band">
                         </div>
                         
                         <!-- Controls -->
                         <div class="controls">
-                            <button id="playBtn">Play</button>
-                            <button id="pauseBtn">Pause</button>
-                            <button id="prevBtn">← Previous</button>
-                            <button id="nextBtn">Next →</button>
+                            <button id="newImageBtn">Show New Random Image</button>
                         </div>
                         
                         <!-- Size Info -->
                         <div class="size-info">
-                            <strong>Carousel Settings:</strong><br>
+                            <strong>Image Settings:</strong><br>
                             Max Width: 500px<br>
-                            Auto-play: 3 seconds per image<br>
-                            Transition: Fade effect<br>
-                            Total Images: 7
+                            Total Images: 7<br>
+                            Current Image: <span id="currentImageName">-</span>
                         </div>
                         
                     </div>
@@ -164,40 +147,31 @@
         
         <!-- JS -->
         <script src="js/jquery-3.5.1.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         
         <script>
-            $(document).ready(function() {
-                // Initialize carousel
-                var owl = $('.image-carousel').owlCarousel({
-                    items: 1,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    loop: true,
-                    nav: false,
-                    dots: true,
-                    animateOut: 'fadeOut',
-                    animateIn: 'fadeIn'
-                });
-                
-                // Control buttons
-                $('#playBtn').click(function() {
-                    owl.trigger('play.owl.autoplay', [3000]);
-                });
-                
-                $('#pauseBtn').click(function() {
-                    owl.trigger('stop.owl.autoplay');
-                });
-                
-                $('#prevBtn').click(function() {
-                    owl.trigger('prev.owl.carousel');
-                });
-                
-                $('#nextBtn').click(function() {
-                    owl.trigger('next.owl.carousel');
-                });
-            });
+            const images = [
+                'images/2023/Group 2023.webp',
+                'images/2023/Billie March 2023.webp',
+                'images/2023/Linda Younger and Friends March 2023.webp',
+                'images/2023/New & Returning Members March 2023.webp',
+                'images/2023/Veterans Concert 2023.webp',
+                'images/2023/Veterans Concert 2 2023.webp',
+                'images/2023/2023 Linda Younger.webp'
+            ];
+            
+            function showRandomImage() {
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                document.getElementById('randomImage').src = randomImage;
+                const imageName = randomImage.split('/').pop();
+                document.getElementById('currentImageName').textContent = imageName;
+            }
+            
+            // Show random image on load
+            showRandomImage();
+            
+            // Button to show new random image
+            document.getElementById('newImageBtn').addEventListener('click', showRandomImage);
         </script>
         
     </body>

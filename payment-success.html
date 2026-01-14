@@ -16,8 +16,6 @@
         <link rel="stylesheet" href="css/style-responsive.css">
         <link rel="stylesheet" href="css/animate.min.css">
         <link rel="stylesheet" href="css/vertical-rhythm.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/owl.transitions.css">
         
         <style>
             .success-container {
@@ -26,20 +24,17 @@
                 padding: 20px;
                 text-align: center;
             }
-            .success-carousel {
+            .success-image {
                 max-width: 500px;
                 margin: 0 auto 30px;
                 border-radius: 10px;
                 overflow: hidden;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             }
-            .success-carousel img {
+            .success-image img {
                 width: 100%;
                 height: auto;
                 display: block;
-            }
-            .owl-theme .owl-controls .owl-page span {
-                background: #28a745;
             }
             .success-title {
                 color: #28a745;
@@ -182,13 +177,9 @@
                 <div class="container relative">
                     
                     <div class="success-container">
-                        <!-- Success Carousel -->
-                        <div class="success-carousel owl-carousel">
-                            <div><img src="images/2023/Group 2023.webp" alt="Skyliners Group 2023"></div>
-                            <div><img src="images/2023/Billie March 2023.webp" alt="Billie March 2023"></div>
-                            <div><img src="images/2023/Linda Younger and Friends March 2023.webp" alt="Linda Younger and Friends March 2023"></div>
-                            <div><img src="images/2023/New & Returning Members March 2023.webp" alt="New & Returning Members March 2023"></div>
-                            <div><img src="images/2023/Veterans Concert 2023.webp" alt="Veterans Concert 2023"></div>
+                        <!-- Success Image -->
+                        <div class="success-image">
+                            <img id="randomImage" src="" alt="Skyliners Big Band">
                         </div>
                         
                         <h1 class="success-title font-alt">Payment Successful!</h1>
@@ -336,23 +327,20 @@
                 document.getElementById('shipping-address').innerHTML = formatAddress(data);
                 document.getElementById('amount-paid').textContent = '$' + data.amount + ' USD';
                 
-                // Initialize carousel
-                $('.success-carousel').owlCarousel({
-                    items: 1,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    loop: true,
-                    nav: false,
-                    dots: true,
-                    animateOut: 'fadeOut',
-                    animateIn: 'fadeIn'
-                });
+                // Select random image
+                const images = [
+                    'images/2023/Group 2023.webp',
+                    'images/2023/Billie March 2023.webp',
+                    'images/2023/Linda Younger and Friends March 2023.webp',
+                    'images/2023/New & Returning Members March 2023.webp',
+                    'images/2023/Veterans Concert 2023.webp',
+                    'images/2023/Veterans Concert 2 2023.webp',
+                    'images/2023/2023 Linda Younger.webp'
+                ];
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                document.getElementById('randomImage').src = randomImage;
             });
         </script>
-        
-        <!-- JS -->
-        <script src="js/jquery-3.5.1.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
         
     </body>
 </html>
