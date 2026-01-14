@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>PayPal Integration Test - The Skyliners Big Band</title>
-        <meta name="description" content="PayPal integration test page for The Skyliners Big Band Dance Club">
+        <title>Membership sign-up - The Skyliners Big Band</title>
+        <meta name="description" content="PayPal membership sign-up page for The Skyliners Big Band Dance Club">
         <meta name="robots" content="noindex, nofollow">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="css/vertical-rhythm.min.css">
         
         <style>
-            .paypal-test-container {
+            .membership-sign-up-container {
                 max-width: 600px;
                 margin: 0 auto;
                 padding: 20px;
@@ -137,17 +137,16 @@
                     
                     <a href="index.html" class="back-link">← Back to Main Site</a>
                     
-                    <div class="paypal-test-container">
-                        <span class="beta-badge">BETA TEST</span>
-                        
+                    <div class="membership-sign-up-container">
                         <h1 class="section-title font-alt mb-30">
-                            PayPal Payment Test
+                            Membership Sign-Up
                         </h1>
                         
-                        <div class="test-notice">
+                        <!-- For testing only -->
+                        <!-- div class="test-notice">
                             <h4>⚠️ Test Mode Notice</h4>
                             <p>This is a <strong>beta test page</strong> for PayPal integration. Real transactions will be processed during testing with 1/100th the actual amount.</p>
-                        </div>
+                        </div -->
                         
                         <div class="test-notice" style="background: #d1ecf1; border-color: #bee5eb;">
                             <h4 style="color: #0c5460;">ℹ️ How This Works</h4>
@@ -158,28 +157,28 @@
                         
                         <div class="membership-options">
                             <label class="membership-option selected">
-                                <input type="radio" name="membership" value="full-couple" data-price="1.50" data-description="Full Membership - Couple (6 Dances)" checked>
+                                <input type="radio" name="membership" value="full-couple" data-price="150" data-description="Full Membership - Couple (6 Dances)" checked>
                                 <strong>Full Membership - Couple</strong>
                                 <br><small>6 Dances included</small>
                                 <div class="price-tag">$150</div>
                             </label>
                             
                             <label class="membership-option">
-                                <input type="radio" name="membership" value="full-single" data-price="1.08" data-description="Full Membership - Single (6 Dances)">
+                                <input type="radio" name="membership" value="full-single" data-price="75" data-description="Full Membership - Single (6 Dances)">
                                 <strong>Full Membership - Single</strong>
                                 <br><small>6 Dances included</small>
                                 <div class="price-tag">$75</div>
                             </label>
                             
                             <label class="membership-option">
-                                <input type="radio" name="membership" value="half-couple" data-price="1.10" data-description="Half Membership - Couple (3 Dances)">
+                                <input type="radio" name="membership" value="half-couple" data-price="100" data-description="Half Membership - Couple (3 Dances)">
                                 <strong>Half Membership - Couple</strong>
                                 <br><small>3 Dances included</small>
                                 <div class="price-tag">$100</div>
                             </label>
                             
                             <label class="membership-option">
-                                <input type="radio" name="membership" value="half-single" data-price="1.05" data-description="Half Membership - Single (3 Dances)">
+                                <input type="radio" name="membership" value="half-single" data-price="50" data-description="Half Membership - Single (3 Dances)">
                                 <strong>Half Membership - Single</strong>
                                 <br><small>3 Dances included</small>
                                 <div class="price-tag">$50</div>
@@ -218,7 +217,6 @@
                     <div class="footer-text">
                         <p class="text-center">
                             © The Skyliners Big Band of Acadiana. All Rights Reserved.
-                            <br><small>This is a beta test page for PayPal integration.</small>
                         </p>
                     </div>
                 </div>
@@ -237,7 +235,6 @@
         <script src="js/all.js"></script>
         
         <!-- PayPal SDK -->
-        <!-- IMPORTANT: Replace YOUR_CLIENT_ID with your actual PayPal Client ID -->
         <!-- For sandbox testing, use your sandbox client ID -->
         <!-- For production, use your live client ID and remove &enable-funding=venmo if not needed -->
         <script src="https://www.paypal.com/sdk/js?client-id=AX08XsMLzwnt9QYuuP4l7bpx_TOQtYFmF7qfXfwim-ZeMCxmdzhwOAD6WBGUM9xSR2LSe45KEwHwjzwm&currency=USD&intent=capture" data-sdk-integration-source="button-factory"></script>
@@ -282,7 +279,6 @@
             }
 
             // Initialize PayPal Buttons
-            // NOTE: This will only work once you replace YOUR_CLIENT_ID with a valid PayPal Client ID
             if (typeof paypal !== 'undefined') {
                 paypal.Buttons({
                     style: {

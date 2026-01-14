@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Payment Successful - The Skyliners Big Band</title>
-        <meta name="description" content="Thank you for your membership purchase">
+        <meta name="description" content="Thank you for your membership purchase.">
         <meta name="robots" content="noindex, nofollow">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="css/style-responsive.css">
         <link rel="stylesheet" href="css/animate.min.css">
         <link rel="stylesheet" href="css/vertical-rhythm.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.transitions.css">
         
         <style>
             .success-container {
@@ -24,37 +26,20 @@
                 padding: 20px;
                 text-align: center;
             }
-            .success-icon {
-                width: 120px;
-                height: 120px;
-                background: linear-gradient(135deg, #28a745, #20c997);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .success-carousel {
+                max-width: 500px;
                 margin: 0 auto 30px;
-                animation: scaleIn 0.5s ease-out;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             }
-            .success-icon svg {
-                width: 60px;
-                height: 60px;
-                stroke: white;
-                stroke-width: 3;
-                fill: none;
-                animation: checkmark 0.8s ease-out 0.3s both;
+            .success-carousel img {
+                width: 100%;
+                height: auto;
+                display: block;
             }
-            @keyframes scaleIn {
-                0% { transform: scale(0); }
-                50% { transform: scale(1.1); }
-                100% { transform: scale(1); }
-            }
-            @keyframes checkmark {
-                0% { stroke-dashoffset: 100; }
-                100% { stroke-dashoffset: 0; }
-            }
-            .success-icon svg path {
-                stroke-dasharray: 100;
-                stroke-dashoffset: 100;
+            .owl-theme .owl-controls .owl-page span {
+                background: #28a745;
             }
             .success-title {
                 color: #28a745;
@@ -197,11 +182,13 @@
                 <div class="container relative">
                     
                     <div class="success-container">
-                        <!-- Success Icon -->
-                        <div class="success-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M4 12 L9 17 L20 6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <!-- Success Carousel -->
+                        <div class="success-carousel owl-carousel">
+                            <div><img src="images/2023/Group 2023.webp" alt="Skyliners Group 2023"></div>
+                            <div><img src="images/2023/Billie March 2023.webp" alt="Billie March 2023"></div>
+                            <div><img src="images/2023/Linda Younger and Friends March 2023.webp" alt="Linda Younger and Friends March 2023"></div>
+                            <div><img src="images/2023/New & Returning Members March 2023.webp" alt="New & Returning Members March 2023"></div>
+                            <div><img src="images/2023/Veterans Concert 2023.webp" alt="Veterans Concert 2023"></div>
                         </div>
                         
                         <h1 class="success-title font-alt">Payment Successful!</h1>
@@ -338,7 +325,7 @@
                 
                 // Update greeting
                 document.getElementById('greeting').textContent = 
-                    'Thank you, ' + data.payerName.split(' ')[0] + '! Your membership purchase has been completed.';
+                    'Thank you, ' + data.payerName.split(' ')[0] + '! Your membership purchase has been completed. We\'re excited to see you at our dances!';
                 
                 // Update receipt
                 document.getElementById('transaction-id').textContent = data.transactionId;
@@ -348,8 +335,24 @@
                 document.getElementById('payer-email').textContent = data.payerEmail;
                 document.getElementById('shipping-address').innerHTML = formatAddress(data);
                 document.getElementById('amount-paid').textContent = '$' + data.amount + ' USD';
+                
+                // Initialize carousel
+                $('.success-carousel').owlCarousel({
+                    items: 1,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    loop: true,
+                    nav: false,
+                    dots: true,
+                    animateOut: 'fadeOut',
+                    animateIn: 'fadeIn'
+                });
             });
         </script>
+        
+        <!-- JS -->
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
         
     </body>
 </html>
